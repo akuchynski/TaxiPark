@@ -1,7 +1,7 @@
 package by.htp.taxipark.model;
 
 public class Wheel {
-	
+
 	private int size;
 	private int number;
 	private int replacementCount;
@@ -29,7 +29,6 @@ public class Wheel {
 	public void setReplacementCount(int replacementCount) {
 		this.replacementCount = replacementCount;
 	}
-
 
 	public Wheel(int size, int number, int replacementCount) {
 
