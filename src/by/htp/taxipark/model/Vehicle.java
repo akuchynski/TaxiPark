@@ -15,7 +15,7 @@ public class Vehicle {
 	private int costs;
 
 	private Wheel[] wheels;
-	private Engine engn = new Engine();
+	private Engine engn;
 
 	public String getModel() {
 		return model;
@@ -104,27 +104,47 @@ public class Vehicle {
 	public void setEngn(Engine engn) {
 		this.engn = engn;
 	}
+	
+	public Vehicle() {
 
-	public Vehicle(String model, String color, int year, int topSpeed, int volume, int fuelConsumption, int wheelsSize,
-			int price) {
+	}
 
-		setModel(model);
-		setColor(color);
-		setYear(year);
-		setTopSpeed(topSpeed);
-		getEngn().setVolume(volume);
-		getEngn().setFuelConsumption(fuelConsumption);
-		setWheelsSize(wheelsSize);
-		setPrice(price);
+	public Vehicle(String model, String color, int year, int topSpeed, int volume, int fuelConsumption, int wheelsSize, int price) {
+		
+		engn = new FuelEngine();
+		
+		this.model = model;
+		this.color = color;
+		this.year = year;
+		this.topSpeed = topSpeed;
+		this.engn.setVolume(volume);
+		this.engn.setFuelConsumption(fuelConsumption);
+		this.wheelsSize = wheelsSize;
+		this.price = price;
+
+		wheelsInit(wheelsSize);
+
+	}
+	
+	public Vehicle(String model, String color, int year, int topSpeed, int wheelsSize, int price) {
+		
+		engn = new ElectricMotor();
+		
+		this.model = model;
+		this.color = color;
+		this.year = year;
+		this.topSpeed = topSpeed;
+		this.wheelsSize = wheelsSize;
+		this.price = price;
 
 		wheelsInit(wheelsSize);
 
 	}
 
 	public void wheelsInit(int wheelsSize) {
-		setWheels(new Wheel[4]);
+		wheels = new Wheel[4];
 		for (int i = 0; i < 4; i++) {
-			getWheels()[i] = new Wheel(wheelsSize, i + 1, 0);
+			wheels[i] = new Wheel(wheelsSize, i + 1, 0);
 		}
 	}
 

@@ -1,6 +1,6 @@
 package by.htp.taxipark.model;
 
-public class Employee {
+public class Employee implements Work{
 
 	private String name;
 
@@ -16,11 +16,17 @@ public class Employee {
 		this.setName(name);
 	}
 
-	public void checkVehicle(Vehicle bmw) {
+	@Override
+	public void preparationForWork() {
+		
+	}
 
+	public void checkVehicle(Vehicle bmw) {
+		
 	}
 
 	public void drive(Vehicle bmw, int i) {
-
+		
 	}
+	
 }

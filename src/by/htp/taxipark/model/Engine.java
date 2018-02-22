@@ -1,6 +1,6 @@
 package by.htp.taxipark.model;
 
-public class Engine {
+public abstract class Engine {
 
 	private int volume;
 	private int fuelConsumption;

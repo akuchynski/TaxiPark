@@ -32,9 +32,9 @@ public class Wheel {
 
 	public Wheel(int size, int number, int replacementCount) {
 
-		setSize(size);
-		setNumber(number);
-		setReplacementCount(replacementCount);
+		this.size = size;
+		this.number = number;
+		this.replacementCount = replacementCount;
 
 	}
 

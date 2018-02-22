@@ -1,13 +1,14 @@
 package by.htp.taxipark.model;
 
-public class Mechanic extends Employee {
+public class Mechanic extends Employee implements Work {
 
 	public Mechanic(String name) {
 		super(name);
 	}
 
 	public void checkVehicle(Vehicle veh) {
-		System.out.println("========== Info about car ==========" + "\n");
+		
+		System.out.println("\n" + "========== Info about car ==========" + "\n");
 		System.out.println(veh.getModel() + "/" + veh.getEngn().getVolume() + "cm3/" + veh.getYear() + "year/" + veh.getMileage() + "miles" + "\n");
 
 		for (int i = 0; i < veh.getWheels().length; i++) {
@@ -17,7 +18,13 @@ public class Mechanic extends Employee {
 		System.out.println(
 				"\nfuel cost: " + veh.getCosts() + "$ (" + veh.getEngn().getFuelConsumption() + "l per 100 miles)");
 
-		System.out.println("_____________________________________" + "\n");
+	}
+
+	@Override
+	public void preparationForWork() {
+
+		System.out.println("Mechanic is working!");
+		
 	}
 
 }

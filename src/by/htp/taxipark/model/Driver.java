@@ -1,12 +1,13 @@
 package by.htp.taxipark.model;
 
-public class Driver extends Employee {
+public class Driver extends Employee implements Work{
 
 	public Driver(String name) {
 		super(name);
 	}
 
 	public void drive(Vehicle veh, int km) {
+		
 		veh.setMileage(veh.getMileage() + km);
 		int numberWheel = 0;
 		for (int i = km / 10000; i > 0; i--) {
@@ -15,5 +16,13 @@ public class Driver extends Employee {
 		}
 
 		veh.setCosts(veh.getCosts() + (km / veh.getEngn().getFuelConsumption()) * 1); //1$ per liter fuel
+		
+	}
+
+	@Override
+	public void preparationForWork() {
+
+		System.out.println("Driver is working!");
+		
 	}
 }
