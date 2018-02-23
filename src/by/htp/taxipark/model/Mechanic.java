@@ -23,7 +23,7 @@ public class Mechanic extends Employee implements Work {
 	@Override
 	public void preparationForWork() {
 
-		System.out.println("Mechanic is working!");
+		System.out.println("Mechanic is ready!");
 		
 	}
 

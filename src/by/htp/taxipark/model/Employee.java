@@ -20,6 +20,11 @@ public class Employee implements Work{
 	public void preparationForWork() {
 		
 	}
+	
+	public void preparationForWork(Park park) {
+		
+	}
+
 
 	public void checkVehicle(Vehicle bmw) {
 		

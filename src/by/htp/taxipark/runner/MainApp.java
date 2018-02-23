@@ -40,7 +40,8 @@ public class MainApp {
 		
 		meh1.preparationForWork();
 		drv1.preparationForWork();
-		mgr1.preparationForWork();
+		drv2.preparationForWork();
+		mgr1.preparationForWork(park);
 		
 		park.parkList();
 

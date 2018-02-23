@@ -22,7 +22,7 @@ public class Driver extends Employee implements Work{
 	@Override
 	public void preparationForWork() {
 
-		System.out.println("Driver is working!");
+		System.out.println("Driver is ready!");
 		
 	}
 }
