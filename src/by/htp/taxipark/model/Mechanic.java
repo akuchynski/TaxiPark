@@ -27,4 +27,9 @@ public class Mechanic extends Employee implements Work {
 		
 	}
 
+	@Override
+	public void work(Park park) {
+		
+	}
+
 }

@@ -1,12 +1,12 @@
 package by.htp.taxipark.model;
 
 public class Park {
-	
+
 	private int vehicleCounter;
 	private int employeeCounter;
 	private Vehicle[] vehicles;
 	private Employee[] employees;
-	
+
 	public int getVehicleCounter() {
 		return vehicleCounter;
 	}
@@ -22,7 +22,7 @@ public class Park {
 	public void setEmployeeCounter(int employeeCounter) {
 		this.employeeCounter = employeeCounter;
 	}
-	
+
 	public Vehicle[] getVehicles() {
 		return vehicles;
 	}
@@ -38,7 +38,6 @@ public class Park {
 	public void setEmployees(Employee[] employees) {
 		this.employees = employees;
 	}
-
 
 	public void addVehicle(Vehicle vehicle) {
 
@@ -71,41 +70,6 @@ public class Park {
 		}
 
 	}
-	
-	
-	public void addEmployee(Employee employee) {
-
-		if (employees != null) {
-			if (employeeCounter < this.employees.length) {
-
-				this.employees[employeeCounter] = employee;
-				employeeCounter++;
-
-			} else {
-
-				Employee[] employees = new Employee[this.employees.length + 1];
-
-				for (int i = 0; i < this.employees.length; i++) {
-					employees[i] = this.employees[i];
-				}
-
-				this.employees = employees;
-				this.employees[employeeCounter] = employee;
-				employeeCounter++;
-
-			}
-
-		} else {
-
-			this.employees = new Employee[1];
-			this.employees[employeeCounter] = employee;
-			employeeCounter++;
-
-		}
-
-	}
-	
-	
 
 	public void getPrices() {
 		int fullPrice = 0;
@@ -156,8 +120,8 @@ public class Park {
 			}
 			if (vehicles[i].getTopSpeed() > speed) {
 				carCount++;
-				System.out.println(carCount + "# " + vehicles[i].getModel() + " " + vehicles[i].getYear()
-						+ " " + vehicles[i].getTopSpeed());
+				System.out.println(carCount + "# " + vehicles[i].getModel() + " " + vehicles[i].getYear() + " "
+						+ vehicles[i].getTopSpeed());
 			}
 		}
 	}

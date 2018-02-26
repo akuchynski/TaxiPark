@@ -7,7 +7,7 @@ public class Manager extends Employee implements Work {
 	}
 
 	@Override
-	public void preparationForWork(Park park) {
+	public void work(Park park) {
 
 		System.out.println("Manager is working!");
 		for (int i = 0; i < park.getEmployees().length; i++) {
@@ -19,6 +19,11 @@ public class Manager extends Employee implements Work {
 			}
 		}
 
+	}
+
+	@Override
+	public void preparationForWork() {
+		System.out.println("Mechanic is ready!");
 	}
 
 }

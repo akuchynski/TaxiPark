@@ -1,5 +1,7 @@
 package by.htp.taxipark.model;
 
+import by.htp.taxipark.logic.ParkLogic;
+
 public class Driver extends Employee implements Work{
 
 	public Driver(String name) {
@@ -11,11 +13,10 @@ public class Driver extends Employee implements Work{
 		veh.setMileage(veh.getMileage() + km);
 		int numberWheel = 0;
 		for (int i = km / 10000; i > 0; i--) {
-			numberWheel = (int) (Math.random() * 4);	 //change 1 wheel (every 10.000)
+			numberWheel = (int) (Math.random() * 4);
 			RepairZone.changeWheel(veh, numberWheel);
 		}
-
-		veh.setCosts(veh.getCosts() + (km / veh.getEngn().getFuelConsumption()) * 1); //1$ per liter fuel
+		veh.setCosts(veh.getCosts() + (km / veh.getEngn().getFuelConsumption()) * ParkLogic.fuelCost);
 		
 	}
 
@@ -23,6 +24,11 @@ public class Driver extends Employee implements Work{
 	public void preparationForWork() {
 
 		System.out.println("Driver is ready!");
+		
+	}
+
+	@Override
+	public void work(Park park) {
 		
 	}
 }

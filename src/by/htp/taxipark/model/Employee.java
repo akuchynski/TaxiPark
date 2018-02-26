@@ -1,6 +1,6 @@
 package by.htp.taxipark.model;
 
-public class Employee implements Work{
+public class Employee {
 
 	private String name;
 
@@ -16,22 +16,12 @@ public class Employee implements Work{
 		this.setName(name);
 	}
 
-	@Override
-	public void preparationForWork() {
-		
-	}
-	
-	public void preparationForWork(Park park) {
-		
-	}
-
-
 	public void checkVehicle(Vehicle bmw) {
-		
+
 	}
 
 	public void drive(Vehicle bmw, int i) {
-		
+
 	}
-	
+
 }
