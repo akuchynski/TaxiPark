@@ -1,6 +1,6 @@
 package by.htp.taxipark.runner;
 
-import by.htp.taxipark.logic.ParkLogic;
+import by.htp.taxipark.logic.ParkService;
 import by.htp.taxipark.model.Bus;
 import by.htp.taxipark.model.Car;
 import by.htp.taxipark.model.Driver;
@@ -16,49 +16,43 @@ public class MainApp {
 
 		Park park = new Park();
 
-		Manager mgr1 = new Manager("Donald");
-		Driver drv1 = new Driver("John");
-		Driver drv2 = new Driver("Ivan");
-		Mechanic meh1 = new Mechanic("Jason");
+		Manager manager1 = new Manager("Donald");
+		Driver driver1 = new Driver("John");
+		Driver driver2 = new Driver("Ivan");
+		Mechanic mechanic1 = new Mechanic("Jason");
 
-		ParkLogic.addEmployee(mgr1, park);
-		ParkLogic.addEmployee(drv1, park);
-		ParkLogic.addEmployee(drv2, park);
-		ParkLogic.addEmployee(meh1, park);
+		park.addEmployee(manager1);
+		park.addEmployee(driver1);
+		park.addEmployee(driver2);
+		park.addEmployee(mechanic1);
 
-		// ***** Car Model/Color/Year/Mileage/Volume/FuelConsumption/WheelSize/Price ******
+		// ***** Car Model/Color/TopSpeed/FuelConsumption/Price ******
 
-		Vehicle bmw = new Car("BMW 740", "black", 2018, 260, 4000, 20, 19, 50000);
-		Vehicle lada = new Car("Lada X-Ray", "red", 2018, 190, 2000, 10, 15, 10000);
-		Vehicle tesla = new ElectricCar("Tesla 3", "grey", 2018, 230, 18, 45000);
-		Vehicle merc = new Bus("Mercedes Bus", "white", 2018, 160, 2500, 13, 16, 40000);
+		Vehicle bmw = new Car("BMW 740", "black", 260, 20, 50000);
+		Vehicle lada = new Car("Lada X-Ray", "red", 190, 10, 10000);
+		Vehicle tesla = new ElectricCar("Tesla 3", "grey", 230, 45000);
+		Vehicle merc = new Bus("Mercedes Bus", "white", 160, 13, 40000);
 
 		park.addVehicle(bmw);
 		park.addVehicle(lada);
 		park.addVehicle(tesla);
 		park.addVehicle(merc);
 
-		meh1.preparationForWork();
-		drv1.preparationForWork();
-		drv2.preparationForWork();
-		mgr1.preparationForWork();
-		mgr1.work(park);
+		ParkService.parkList(park);
+		ParkService.sortPark(park);
+		ParkService.parkList(park);
+		ParkService.getFullPrice(park);
+		ParkService.getFastCar(park, 250);
 
-		park.parkList();
+		manager1.work(bmw, 0);
+		mechanic1.work(bmw, 0);
+		driver1.work(bmw, 10000);		
+		mechanic1.work(bmw, 10000);
+		
+		driver2.work(bmw, 50000);
+		mechanic1.work(bmw, 50000);
 
-		park.getPrices();
-
-		park.getFastCar(250);
-
-		park.sortPark();
-
-		park.parkList();
-
-		meh1.checkVehicle(bmw);
-		drv1.drive(bmw, 50000);
-		drv2.drive(bmw, 50000);
-		meh1.checkVehicle(bmw);
+		manager1.work(bmw, 60000);
 
 	}
-
 }

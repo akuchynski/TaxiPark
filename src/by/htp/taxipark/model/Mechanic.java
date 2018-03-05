@@ -1,35 +1,37 @@
 package by.htp.taxipark.model;
 
-public class Mechanic extends Employee implements Work {
+import by.htp.taxipark.logic.ParkService;
+
+public class Mechanic extends Employee implements Workable {
 
 	public Mechanic(String name) {
 		super(name);
 	}
 
-	public void checkVehicle(Vehicle veh) {
-		
-		System.out.println("\n" + "========== Info about car ==========" + "\n");
-		System.out.println(veh.getModel() + "/" + veh.getEngn().getVolume() + "cm3/" + veh.getYear() + "year/" + veh.getMileage() + "miles" + "\n");
-
-		for (int i = 0; i < veh.getWheels().length; i++) {
-			System.out.println("wheel #" + veh.getWheels()[i].getNumber() + " size:" + veh.getWheels()[i].getSize() + " " + veh.getWheels()[i].getReplacementCount() + " replacements");
+	public void work(Vehicle veh, int miles) {
+		if (miles > 0 && miles <= 10000) {
+			int numberWheel;
+			numberWheel = (int) (Math.random() * 4);
+			changeWheel(veh, numberWheel);
+		} else if (miles > 10000 && miles <= 50000) {
+			for (int i = 0; i < veh.getWheels().length; i++) {
+				changeWheel(veh, i);
+			}
 		}
-
-		System.out.println(
-				"\nfuel cost: " + veh.getCosts() + "$ (" + veh.getEngn().getFuelConsumption() + "l per 100 miles)");
-
+		getWheelInfo(veh);
 	}
 
-	@Override
-	public void preparationForWork() {
-
-		System.out.println("Mechanic is ready!");
-		
+	public void changeWheel(Vehicle veh, int num) {
+		veh.getWheels()[num].setReplacementCount(veh.getWheels()[num].getReplacementCount() + 1);
+		veh.setCosts(veh.getCosts() + 50);
 	}
 
-	@Override
-	public void work(Park park) {
-		
+	public void getWheelInfo(Vehicle veh) {
+		System.out.println("\n" + "========== Mechanic info ==========" + "\n");
+		ParkService.getCarInfo(veh);
+		for (int i = 0; i < veh.getWheels().length; i++) {
+			System.out.println("wheel #" + veh.getWheels()[i].getNumber() + " "
+					+ veh.getWheels()[i].getReplacementCount() + " replacements");
+		}
 	}
-
 }

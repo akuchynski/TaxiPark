@@ -1,29 +1,32 @@
 package by.htp.taxipark.model;
 
-public class Manager extends Employee implements Work {
+import by.htp.taxipark.logic.ParkService;
+
+public class Manager extends Employee implements Workable {
 
 	public Manager(String name) {
 		super(name);
 	}
 
-	@Override
-	public void work(Park park) {
+	public void work(Vehicle veh, int miles) {
+		System.out.println("\n" + "========== Manager info ==========" + "\n");
+		setDepreciation(veh, miles);
+		getCostsInfo(veh);
+		getPriceCar(veh);
+	}
 
-		System.out.println("Manager is working!");
-		for (int i = 0; i < park.getEmployees().length; i++) {
-			if (park.getEmployees()[i] instanceof Driver) {
-				System.out.println("--Driver " + park.getEmployees()[i].getName() + " is ready to work");
-			}
-			if (park.getEmployees()[i] instanceof Mechanic) {
-				System.out.println("--Mechanic " + park.getEmployees()[i].getName() + " is ready to work");
-			}
+	public void getPriceCar(Vehicle veh) {
+		System.out.println("current car price: " + veh.getPrice() + "$");
+	}
+
+	public void getCostsInfo(Vehicle veh) {
+		ParkService.getCarInfo(veh);
+		System.out.println("costs info: " + veh.getCosts() + "$");
+	}
+
+	public void setDepreciation(Vehicle veh, int miles) {
+		if (miles > 0) {
+			veh.setPrice(veh.getPrice() - (veh.getPrice() * 1000) / miles);
 		}
-
 	}
-
-	@Override
-	public void preparationForWork() {
-		System.out.println("Mechanic is ready!");
-	}
-
 }

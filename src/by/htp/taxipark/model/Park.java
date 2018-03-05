@@ -41,88 +41,45 @@ public class Park {
 
 	public void addVehicle(Vehicle vehicle) {
 
-		if (vehicles != null) {
+		if (this.vehicles != null) {
 			if (vehicleCounter < this.vehicles.length) {
-
 				this.vehicles[vehicleCounter] = vehicle;
 				vehicleCounter++;
-
 			} else {
-
 				Vehicle[] vehicles = new Vehicle[this.vehicles.length + 1];
-
 				for (int i = 0; i < this.vehicles.length; i++) {
 					vehicles[i] = this.vehicles[i];
 				}
-
 				this.vehicles = vehicles;
 				this.vehicles[vehicleCounter] = vehicle;
 				vehicleCounter++;
-
 			}
-
 		} else {
-
 			this.vehicles = new Vehicle[1];
 			this.vehicles[vehicleCounter] = vehicle;
 			vehicleCounter++;
-
 		}
-
 	}
 
-	public void getPrices() {
-		int fullPrice = 0;
-		int carCount = 0;
-		for (int i = 0; i < vehicles.length; i++) {
-			if (vehicles[i] == null) {
-				continue;
-			}
-			carCount++;
-			fullPrice = fullPrice + vehicles[i].getPrice();
-		}
-		System.out.println("\n" + carCount + " cars in park. Full price: " + fullPrice + "$" + "\n");
-	}
+	public void addEmployee(Employee employee) {
 
-	public void sortPark() {
-
-		Vehicle tmp = null;
-
-		for (int i = 0; i < vehicles.length - 1; i++) {
-			for (int n = 0; n < vehicles.length - i - 1; n++) {
-				tmp = vehicles[n];
-				if (vehicles[n].getEngn().getFuelConsumption() > vehicles[n + 1].getEngn().getFuelConsumption()) {
-					vehicles[n] = vehicles[n + 1];
-					vehicles[n + 1] = tmp;
+		if (this.employees != null) {
+			if (employeeCounter < this.employees.length) {
+				this.employees[employeeCounter] = employee;
+				employeeCounter++;
+			} else {
+				Employee[] employees = new Employee[this.employees.length + 1];
+				for (int i = 0; i < this.employees.length; i++) {
+					employees[i] = this.employees[i];
 				}
+				this.employees = employees;
+				this.employees[employeeCounter] = employee;
+				employeeCounter++;
 			}
-		}
-	}
-
-	public void parkList() {
-		System.out.println("\n" + "========== Park Info ==========" + "\n");
-		int carCount = 0;
-		for (int i = 0; i < vehicles.length; i++) {
-			if (vehicles[i] == null) {
-				continue;
-			}
-			carCount++;
-			System.out.println(carCount + "# " + vehicles[i].getModel() + " " + vehicles[i].getYear());
-		}
-	}
-
-	public void getFastCar(int speed) {
-		System.out.println("========== Fast cars ==========" + "\n");
-		int carCount = 0;
-		for (int i = 0; i < vehicles.length; i++) {
-			if (vehicles[i] == null) {
-				continue;
-			}
-			if (vehicles[i].getTopSpeed() > speed) {
-				carCount++;
-				System.out.println(carCount + "# " + vehicles[i].getModel() + " " + vehicles[i].getYear() + " "
-						+ vehicles[i].getTopSpeed());
-			}
+		} else {
+			this.employees = new Employee[1];
+			this.employees[employeeCounter] = employee;
+			employeeCounter++;
 		}
 	}
 }

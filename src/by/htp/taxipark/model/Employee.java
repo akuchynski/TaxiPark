@@ -1,6 +1,6 @@
 package by.htp.taxipark.model;
 
-public class Employee {
+public abstract class Employee {
 
 	private String name;
 
@@ -14,14 +14,6 @@ public class Employee {
 
 	public Employee(String name) {
 		this.setName(name);
-	}
-
-	public void checkVehicle(Vehicle bmw) {
-
-	}
-
-	public void drive(Vehicle bmw, int i) {
-
 	}
 
 }

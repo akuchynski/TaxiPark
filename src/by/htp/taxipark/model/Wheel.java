@@ -2,17 +2,8 @@ package by.htp.taxipark.model;
 
 public class Wheel {
 
-	private int size;
 	private int number;
 	private int replacementCount;
-
-	public int getSize() {
-		return size;
-	}
-
-	public void setSize(int size) {
-		this.size = size;
-	}
 
 	public int getNumber() {
 		return number;
@@ -29,13 +20,12 @@ public class Wheel {
 	public void setReplacementCount(int replacementCount) {
 		this.replacementCount = replacementCount;
 	}
-
-	public Wheel(int size, int number, int replacementCount) {
-
-		this.size = size;
-		this.number = number;
-		this.replacementCount = replacementCount;
-
+	
+	public Wheel() {
 	}
 
+	public Wheel(int number, int replacementCount) {
+		this.number = number;
+		this.replacementCount = replacementCount;
+	}
 }

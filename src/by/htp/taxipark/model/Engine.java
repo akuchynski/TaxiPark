@@ -2,17 +2,18 @@ package by.htp.taxipark.model;
 
 public abstract class Engine {
 
-	private int volume;
+	private int power;
 	private int fuelConsumption;
+	private int fuelCost;
 
-	public int getVolume() {
-		return volume;
+	public int getPower() {
+		return power;
 	}
 
-	public void setVolume(int volume) {
-		this.volume = volume;
+	public void setPower(int power) {
+		this.power = power;
 	}
-
+	
 	public int getFuelConsumption() {
 		return fuelConsumption;
 	}
@@ -21,4 +22,11 @@ public abstract class Engine {
 		this.fuelConsumption = fuelConsumption;
 	}
 
+	public int getFuelCost() {
+		return fuelCost;
+	}
+
+	public void setFuelCost(int fuelCost) {
+		this.fuelCost = fuelCost;
+	}
 }

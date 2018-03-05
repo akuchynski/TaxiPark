@@ -4,9 +4,7 @@ public class Vehicle {
 
 	private String model;
 	private String color;
-	private int year;
 	private int topSpeed;
-	private int wheelsSize;
 	private int price;
 
 	private int passengers;
@@ -33,28 +31,12 @@ public class Vehicle {
 		this.color = color;
 	}
 
-	public int getYear() {
-		return year;
-	}
-
-	public void setYear(int year) {
-		this.year = year;
-	}
-
 	public int getTopSpeed() {
 		return topSpeed;
 	}
 
 	public void setTopSpeed(int topSpeed) {
 		this.topSpeed = topSpeed;
-	}
-
-	public int getWheelsSize() {
-		return wheelsSize;
-	}
-
-	public void setWheelsSize(int wheelsSize) {
-		this.wheelsSize = wheelsSize;
 	}
 
 	public int getPrice() {
@@ -106,46 +88,37 @@ public class Vehicle {
 	}
 	
 	public Vehicle() {
-
 	}
 
-	public Vehicle(String model, String color, int year, int topSpeed, int volume, int fuelConsumption, int wheelsSize, int price) {
+	public Vehicle(String model, String color, int topSpeed, int fuelConsumption, int price) {
 		
 		engn = new FuelEngine();
 		
 		this.model = model;
 		this.color = color;
-		this.year = year;
 		this.topSpeed = topSpeed;
-		this.engn.setVolume(volume);
 		this.engn.setFuelConsumption(fuelConsumption);
-		this.wheelsSize = wheelsSize;
 		this.price = price;
-
-		wheelsInit(wheelsSize);
+		wheelsInit();
 
 	}
 	
-	public Vehicle(String model, String color, int year, int topSpeed, int wheelsSize, int price) {
+	public Vehicle(String model, String color, int topSpeed, int price) {
 		
 		engn = new ElectricMotor();
 		
 		this.model = model;
 		this.color = color;
-		this.year = year;
 		this.topSpeed = topSpeed;
-		this.wheelsSize = wheelsSize;
 		this.price = price;
-
-		wheelsInit(wheelsSize);
+		wheelsInit();
 
 	}
 
-	public void wheelsInit(int wheelsSize) {
+	public void wheelsInit() {
 		wheels = new Wheel[4];
 		for (int i = 0; i < 4; i++) {
-			wheels[i] = new Wheel(wheelsSize, i + 1, 0);
+			wheels[i] = new Wheel(i + 1, 0);
 		}
 	}
-
 }
